@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,10 +21,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'o^74$-^bolw6(5rwu6w(&wpw@edr)l$v5@!!7n$&80cycj5*wl'
+SECRET_KEY = config('SECRET_KEY')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = ['localhost','54.224.132.249']
 
@@ -39,7 +41,7 @@ INSTALLED_APPS = [
 'django.contrib.staticfiles',
 'rest_framework',
 'rest_framework.authtoken',
-'Login'
+'Login',
 ]
 
 SITE_ID = 1
@@ -95,12 +97,12 @@ WSGI_APPLICATION = 'cs.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dataz',
-        'USER': 'postgres',
-        'PASSWORD': 'zictcian',
-        'HOST': 'database-1.ct66klutd0sq.us-east-1.rds.amazonaws.com',
-        'PORT': '5432',
+        'ENGINE': config('ENGINE'),
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('PORT'),
     }
 }
 
