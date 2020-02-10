@@ -28,13 +28,12 @@ class ExampleList2(APIView):
         return Response(serializer.data)
 
     def post(self, request, format=None):
-        pass
-    #     serializer = Example2Serializers(data = request.data)
-    #     if serializer.is_valid():
-    #         serializer.save()
-    #         datas = serializer.get_unique_for_date_validators
-    #         return Response(datas)
-    #     return Response(serializer.errors, status=status.HTT)
+        serializer = Example2Serializers(data = request.data)
+        if serializer.is_valid():
+            serializer.save()
+            datas = serializer.get_unique_for_date_validators
+            return Response(datas)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class CustonAuthToken(ObtainAuthToken):
     
