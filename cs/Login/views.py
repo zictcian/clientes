@@ -31,9 +31,9 @@ class ExampleList2(APIView):
         serializer = Example2Serializers(data = request.data)
         if serializer.is_valid():
             serializer.save()
-            datas = serializer.get_unique_for_date_validators
+            datas = serializer.data
             return Response(datas)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
 
 class CustonAuthToken(ObtainAuthToken):
     
