@@ -1,7 +1,15 @@
-# Created by https://www.gitignore.io/api/virtualenv
-# Edit at https://www.gitignore.io/?templates=virtualenv
 
-### VirtualEnv ###
+# Created by https://www.gitignore.io/api/code,venv
+# Edit at https://www.gitignore.io/?templates=code,venv
+
+### Code ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+### venv ###
 # Virtualenv
 # http://iamzed.com/2009/05/07/a-primer-on-virtualenv/
 .Python
@@ -15,4 +23,4 @@ env.bak/
 venv.bak/
 pip-selfcheck.json
 
-# End of https://www.gitignore.io/api/virtualenv
+# End of https://www.gitignore.io/api/code,venv
