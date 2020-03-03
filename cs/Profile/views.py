@@ -113,7 +113,7 @@ class EstadoCivilList(APIView):
         return Response(serializer.data)
 
     def post(self, request, format=None):
-        serializer = EstadoSerializers(data = request.data)
+        serializer = EstadoCivilSerializers(data = request.data)
         if serializer.is_valid():
             serializer.save()
             datas = serializer.data
